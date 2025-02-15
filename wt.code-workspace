@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"html.preview.scrollEditorWithPreview": false,
+		"html.preview.scrollPreviewWithEditor": false,
+		"files.associations": {
+			"lib.h": "c",
+			"stdio.h": "c"
+		},
+		"terminal.integrated.cwd": "C:\\Users\\agniv\\Documents\\Prog\\Web Apps (HTML, CSS, JS)\\wt_mini_pro\\"
+	}
+}
