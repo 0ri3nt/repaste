@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Auth = () => {
     const { login, signup } = useContext(AuthContext);
-    const [form, setForm] = useState({ email: '', password: '', username: '' });
+    const [form, setForm] = useState({ email: '', password: '', username: '', query: '' });
     const [isLogin, setIsLogin] = useState(true);
     const navigate = useNavigate();
 
@@ -24,6 +24,11 @@ const Auth = () => {
         } catch (error) {
             console.error('Authentication failed:', error);
         }
+    };
+
+    const handleQuerySubmit = (e) => {
+        e.preventDefault();
+        navigate(`https://repaste.live/n/${form.query}`);
     };
 
     return (
@@ -82,6 +87,23 @@ const Auth = () => {
                     </button>
                 </p>
             </div>
+            <form onSubmit={handleQuerySubmit}>
+                <div className="form-group">
+                    <label htmlFor="query">Enter Note URL</label>
+                    <input
+                        type="text"
+                        id="query"
+                        name="query"
+                        value={form.query}
+                        onChange={handleChange}
+                        placeholder="Enter your URL"
+                        required
+                    />
+                </div>
+                <button type="submit" className="button">
+                    Go to URL
+                </button>
+            </form>
         </div>
     );
 };
