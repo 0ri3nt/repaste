@@ -1,39 +1,3 @@
-// import React from 'react';
-// import '../index.css'
-
-// const Inspiration = () => {
-//     return (
-//         <div className="container">
-//             <h1>The Inspiration Behind rePaste</h1>
-//             <p>rePaste was created to solve the issue of sending codes to other people</p>
-//             <table>
-//                 <thead>
-//                     <tr>
-//                         <th>Feature</th>
-//                         <th>Description</th>
-//                     </tr>
-//                 </thead>
-//                 <tbody>
-//                     <tr>
-//                         <td>Syntax Highlighting</td>
-//                         <td>Supports multiple programming languages</td>
-//                     </tr>
-//                     <tr>
-//                         <td>Real-time Collaboration</td>
-//                         <td>Work together with others in real-time</td>
-//                     </tr>
-//                     <tr>
-//                         <td>Version Control</td>
-//                         <td>Track changes and revert to previous versions</td>
-//                     </tr>
-//                 </tbody>
-//             </table>
-//         </div>
-//     );
-// };
-
-// export default Inspiration;
-import React from 'react';
 import '../index.css';
 
 const Inspiration = () => {

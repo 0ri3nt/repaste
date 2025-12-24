@@ -1,11 +1,10 @@
 import { useState, useContext, useEffect } from 'react';
 import { NoteContext } from '../context/NoteContext';
 import { useParams, useNavigate } from 'react-router-dom';
-// import ReactMarkdown from 'react-markdown';
-// import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
-// import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-// import CodeMirror from '@uiw/react-codemirror';
-import MDEditor from '@uiw/react-md-editor';
+import ReactMarkdown from 'react-markdown';
+import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import CodeMirror from '@uiw/react-codemirror';
 
 const Note = () => {
     const { id } = useParams();
@@ -67,7 +66,6 @@ const Note = () => {
         navigate('/dashboard');
     };
 
-
     return (
         <div className="container">
             <h1>{id ? 'Edit Note' : 'New Note'}</h1>
@@ -83,10 +81,18 @@ const Note = () => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="content">Content</label>
-                    <MDEditor
-                      value={form.content}
-                      onChange={(val) => setForm(prev => ({ ...prev, content: val || '' }))}
-                      textareaProps={{ placeholder: "Enter text here..." }}
+                    <CodeMirror
+                        value={form.content}
+                        height="50%"
+                        width='100%'
+                        theme="dark"
+                        onChange={(value) => {
+                            setIsEditing(true);
+                            setForm(prevForm => ({
+                                ...prevForm,
+                                content: value
+                            }));
+                        }}
                     />
                 </div>
                 <div className="form-group">
@@ -99,6 +105,31 @@ const Note = () => {
                 </div>
                 <button type="submit" className="button">Save Note</button>
             </form>
+            <div className='container'>
+                <h2>Preview</h2>
+                <ReactMarkdown
+                    children={form.content}
+                    components={{
+                        code({ node, inline, className, children, ...props }) {
+                            const match = /language-(\w+)/.exec(className || '');
+                            return !inline && match ? (
+                                <SyntaxHighlighter
+                                    style={docco}
+                                    language={match[1]}
+                                    PreTag="div"
+                                    {...props}
+                                >
+                                    {String(children).replace(/\n$/, '')}
+                                </SyntaxHighlighter>
+                            ) : (
+                                <code className={className} {...props}>
+                                    {children}
+                                </code>
+                            );
+                        },
+                    }}
+                />
+            </div>
         </div>
     );
 };

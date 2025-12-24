@@ -11,7 +11,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #121212;
+  background-color: #161616;
   color: #ffffff;
   align-items: center;
   min-height: 100vh;
@@ -49,14 +49,13 @@ code {
 
 /* Auth Card */
 .container {
-  max-width: 1200px;
-  width: 100%;
+  display: static;
   padding: 20px;
+  margin: 0 auto;
   background-color: #1e1e1e;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
-  animation: fadeIn 0.5s ease-in-out;
 }
 
 /* Headings */
@@ -171,10 +170,13 @@ form {
   padding: 20px;
   margin-bottom: 20px;
   transition: transform 0.2s ease;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .note-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 .note-card h2 {
@@ -256,39 +258,65 @@ form {
 }
 
 .main-container {
-  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
   width: 100%;
 }
 
-/* Footer */
 .footer {
-    background-color: #121212;
-    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px;
+    background-color: #1e1e1e;
+    font-size: 15px;
+    row-gap: 10px;
+    font-family: Arial, sans-serif;
     text-align: center;
-    margin-inline: auto;
+    position: fixed;
     width: 100%;
-    border-radius: 10px;
+    bottom: 0;
+    left: 0;
     box-sizing: border-box;
 }
 
 .footer nav {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
+  display: flex;
+  gap: 20px;
 }
 
 .footer a {
-    color: #007bff;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s ease;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
 }
 
 .footer a:hover {
-    text-decoration: underline;
-    color: #0056b3;
+  text-decoration: none;
+  color: #0056b3;
+}
+
+.home-button {
+    display: inline-flex;
+    align-items: left;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+    cursor: pointer;
+}
+
+.home-button img {
+    width: 18px;
+    height: 18px;
+    display: block;
+    filter: invert(1) hue-rotate(180deg) saturate(.6);
+}
+
+.home-button:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
 }
 
 #root {
@@ -440,3 +468,16 @@ td {
 .note-card-footer .icon-button {
   margin-top: 10px;
 }
+
+.container .preview-container{
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+
+  flex: 1 1 auto;
+  min-width: 0;    /* prevents flex overflow issues */
+
+  min-width: 520px; /* adjust as needed */
+  min-height: 200px; /* adjust as needed */
+  background: transparent; /* optional visual */
+}  

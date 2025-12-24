@@ -1,7 +1,6 @@
-import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import PrivateRoute from './utils/PrivateRoute';
 import AuthProvider from './context/AuthContext';
+import PrivateRoute from './utils/PrivateRoute';
 import NoteProvider from './context/NoteContext';
 import Auth from './components/Auth';
 import Note from './components/Note';
@@ -10,6 +9,7 @@ import ViewNote from './components/ViewNote';
 import MarkdownReference from './components/MarkdownReference';
 import AboutUs from './components/AboutUs';
 import Inspiration from './components/Inspiration';
+import HomeButton from './components/Home';
 import Layout from './components/Layout';
 
 const App = () => {
@@ -18,6 +18,7 @@ const App = () => {
             <NoteProvider>
                 <Router>
                     <Layout>
+                        <HomeButton />
                         <Routes>
                             <Route path="/" element={<Auth />} />
                             <Route path="/dashboard" element={<PrivateRoute component={Dashboard} />} />

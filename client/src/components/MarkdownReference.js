@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import '../index.css';
 
@@ -48,7 +47,7 @@ const MarkdownReference = () => {
                 <div className="example">
                     <code>![alt text](image url)</code>
                     <div className="preview">
-                        <ReactMarkdown>{"![React Logo](https://files.catbox.moe/zxocyr.png)"}</ReactMarkdown>
+                        <ReactMarkdown>{"![Repaste Logo](./favicon.ico)"}</ReactMarkdown>
                     </div>
                 </div>
 
