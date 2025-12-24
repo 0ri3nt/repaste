@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -10,16 +9,13 @@ const app = express();
 const PORT = process.env.PORT || 5001;
 
 // Middleware
-app.use(cors({ origin: process.env.FRONTEND_ORIGIN || '*' }));
+app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected'))
-    .catch(err => {
-        console.error('MongoDB connection error:', err);
-        process.exit(1);
-    });
+    .catch(err => console.log(err));
 
 // Routes
 app.use('/api/auth', authRoutes);
