@@ -14,7 +14,7 @@ const ViewNote = () => {
         const fetchNote = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const res = await axios.get(`http://localhost:5001/api/notes/url/${customUrl}`, {
+                const res = await axios.get(`https://repaste-6z5j.onrender.com/api/notes/url/${customUrl}`, {
                     headers: { 'x-auth-token': token }
                 });
                 setNote(res.data);

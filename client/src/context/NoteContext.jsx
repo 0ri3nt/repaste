@@ -9,7 +9,7 @@ const NoteProvider = ({ children }) => {
 
     const getNotes = async () => {
         const token = localStorage.getItem('token');
-        const res = await axios.get('http://localhost:5001/api/notes', {
+        const res = await axios.get('https://repaste-6z5j.onrender.com/api/notes', {
             headers: { 'x-auth-token': token },
         });
         setNotes(res.data);
@@ -17,7 +17,7 @@ const NoteProvider = ({ children }) => {
 
     const getNote = useCallback(async (id) => {
         const token = localStorage.getItem('token');
-        const res = await axios.get(`http://localhost:5001/api/notes/${id}`, {
+        const res = await axios.get(`https://repaste-6z5j.onrender.com/api/notes/${id}`, {
             headers: { 'x-auth-token': token },
         });
         setNote(res.data);
@@ -27,11 +27,11 @@ const NoteProvider = ({ children }) => {
         const token = localStorage.getItem('token');
         try {
             if (form._id) {
-                await axios.put(`http://localhost:5001/api/notes/${form._id}`, form, {
+                await axios.put(`https://repaste-6z5j.onrender.com/api/notes/${form._id}`, form, {
                     headers: { 'x-auth-token': token }
                 });
             } else {
-                await axios.post('http://localhost:5001/api/notes', form, {
+                await axios.post('https://repaste-6z5j.onrender.com/api/notes', form, {
                     headers: { 'x-auth-token': token },
                     timeout: 30000
                 });

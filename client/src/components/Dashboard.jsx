@@ -17,7 +17,7 @@ const Dashboard = () => {
     const deleteNote = async (id) => {
         const token = localStorage.getItem('token');
         try {
-            await axios.delete(`http://localhost:5001/api/notes/${id}`, {
+            await axios.delete(`https://repaste-6z5j.onrender.com/api/notes/${id}`, {
                 headers: { 'x-auth-token': token },
             });
             getNotes();

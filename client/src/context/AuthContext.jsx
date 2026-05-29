@@ -5,7 +5,7 @@ export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
     // set API base so relative requests work
-    axios.defaults.baseURL = 'https://repaste-6z5j.onrender.com/' || 'http://localhost:5001';
+    axios.defaults.baseURL = 'https://repaste-6z5j.onrender.com/';
 
     const [authData, setAuthData] = useState(null);
     const [loading, setLoading] = useState(true);
