@@ -9,7 +9,6 @@ import ViewNote from './components/ViewNote';
 import MarkdownReference from './components/MarkdownReference';
 import AboutUs from './components/AboutUs';
 import Inspiration from './components/Inspiration';
-import HomeButton from './components/Home';
 import Layout from './components/Layout';
 
 const App = () => {
